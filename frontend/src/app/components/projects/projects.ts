@@ -51,6 +51,7 @@ export class Projects {
         'Wallet system & order tracking'
       ],
       github: 'https://github.com/Achu-Kappithan/crc-world',
+      liveLink: 'https://ecom.achuu.online',
       status: 'completed'
     },
     {

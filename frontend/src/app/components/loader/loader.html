@@ -1,14 +1,22 @@
 <div class="loader-container" [class.hidden]="!isVisible()">
   <div class="loader-content">
-    <div class="brand">
-      <span class="initials">AB</span>
-      <div class="ring"></div>
-    </div>
-    <div class="progress-wrapper">
-      <div class="progress-bar">
-        <div class="progress-fill" [style.width.%]="progress()"></div>
+    <div class="mesh-glow"></div>
+    
+    <div class="loading-main">
+      <div class="percentage-display">
+        <span class="number">{{ progress() }}</span>
+        <span class="symbol">%</span>
       </div>
-      <div class="status-text">{{ statusText() }}</div>
+      
+      <div class="system-status">
+        <div class="status-console">
+          <span class="prefix">>></span>
+          <span class="text">{{ statusText() }}</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar" [style.width.%]="progress()"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

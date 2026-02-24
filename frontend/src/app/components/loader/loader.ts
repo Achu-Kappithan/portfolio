@@ -14,10 +14,12 @@ export class Loader implements OnInit {
   statusText = signal('Initializing portfolio...');
 
   private statuses = [
-    'Building foundations...',
-    'Fetching projects...',
-    'Polishing pixels...',
-    'Ready to explore.'
+    '[SYSTEM] INITIALIZING_CORE...',
+    '[ACCESS] VERIFYING_PORTFOLIO_CREDENTIALS...',
+    '[RENDER] BOOTSTRAPPING_UI_COMPONENTS...',
+    '[LOAD] FETCHING_PROJECT_METADATA...',
+    '[STYLES] COMPUTING_MESH_GRADIENTS...',
+    '[CORE] FINISHING_ASSET_READY...'
   ];
 
   ngOnInit() {
@@ -26,8 +28,11 @@ export class Loader implements OnInit {
 
   private startLoading() {
     let currentProgress = 0;
+    
     const interval = setInterval(() => {
-      currentProgress += Math.random() * 10;
+      // Create a more variable speed for a "thinking" feel
+      const increment = Math.random() * (currentProgress > 70 ? 3 : 8);
+      currentProgress += increment;
       
       if (currentProgress >= 100) {
         currentProgress = 100;
@@ -35,13 +40,13 @@ export class Loader implements OnInit {
         this.finishLoading();
       }
 
-      this.progress.set(currentProgress);
+      this.progress.set(Math.floor(currentProgress));
       this.updateStatusText(currentProgress);
-    }, 150);
+    }, 120);
   }
 
   private updateStatusText(progress: number) {
-    const index = Math.floor((progress / 100) * this.statuses.length);
+    const index = Math.floor((progress / 100) * (this.statuses.length - 1));
     if (this.statuses[index]) {
       this.statusText.set(this.statuses[index]);
     }

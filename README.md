@@ -45,23 +45,4 @@ Welcome to my portfolio! This project is a showcase of my skills in modern web d
    ```
 
 ---
-
-### � How to Push this to GitHub
-To see this README on your GitHub page (replacing the "Add a README" button), run these commands in your terminal:
-
-```bash
-# 1. Stage the files
-git add README.md
-
-# 2. Commit the doc update
-git commit -m "docs: add premium README with project preview"
-
-# 3. Push to GitHub
-git push origin main
-```
-
-> [!IMPORTANT]
-> To update the "Image Area" above, upload a screenshot of your site to your repo and update the `src` attribute in the `<img>` tag.
-
----
 *Developed with focus on excellence by [Achu](https://github.com/Achu-Kappithan).*

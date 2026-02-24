@@ -25,13 +25,14 @@ export class Projects {
       title: 'FobVerse Recruitment Platform',
       description: 'A scalable recruitment platform for managing job applications, interviews, and candidate assessments.',
       longDescription: 'Enterprise-level recruitment solution with role-based access for global admins, companies, HR users, and candidates.',
-      technologies: ['Angular', 'NestJS', 'MongoDB', 'TypeScript', 'RxJS'],
+      technologies: ['Angular', 'NestJS', 'MongoDB', 'Socket.io', 'WebRTC', 'TypeScript'],
       features: [
         'Role-based access control system',
+        'Real-time communication via Socket.io',
+        'Peer-to-peer video calling with WebRTC',
         'ATS-friendly resume filtering',
         'Four-level interview process',
-        'Candidate progress tracking',
-        'SOLID principles architecture'
+        'Candidate progress tracking'
       ],
       github: 'https://github.com/Achu-Kappithan/fobverse-api',
       liveLink: 'https://app.achuu.online',

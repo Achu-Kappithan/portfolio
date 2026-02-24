@@ -1,0 +1,56 @@
+<section class="section" id="education">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">My academic background and continuous learning journey</p>
+    </div>
+
+    <div class="education-grid">
+      @for (edu of educationList; track edu.institution; let i = $index) {
+        <div class="education-card fade-in" [style.transition-delay.ms]="i * 100">
+          <div class="edu-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+
+          <div class="edu-content">
+            <div class="edu-status" [class.ongoing]="edu.status === 'ongoing'">
+              {{ edu.status === 'ongoing' ? 'In Progress' : 'Completed' }}
+            </div>
+            <h3 class="edu-degree">{{ edu.degree }}</h3>
+            <p class="edu-institution">{{ edu.institution }}</p>
+
+            <div class="edu-meta">
+              <span class="edu-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                {{ edu.location }}
+              </span>
+              <span class="edu-period">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                {{ edu.period }}
+              </span>
+            </div>
+
+            @if (edu.highlights && edu.highlights.length > 0) {
+              <ul class="edu-highlights">
+                @for (highlight of edu.highlights; track highlight) {
+                  <li>{{ highlight }}</li>
+                }
+              </ul>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+<section class="section" id="about">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Get to know me and what drives my passion for development</p>
+    </div>
+
+    <div class="about-content fade-in">
+      <div class="about-text">
+        <p>
+          I'm a <strong>MEAN Stack Developer</strong> based in Kerala, India, with a passion for creating
+          elegant, efficient, and user-friendly web applications. Currently honing my skills at
+          <strong>Brototype</strong>, where I've developed proficiency in modern web technologies and
+          industry best practices.
+        </p>
+        <p>
+          My journey into tech started from a commerce background, which gives me a unique perspective
+          on building business-focused solutions. I believe in writing clean, maintainable code and
+          following SOLID principles to create scalable applications.
+        </p>
+        <p>
+          When I'm not coding, I'm usually exploring new technologies, practicing Data Structures &
+          Algorithms, or working on personal projects to expand my skillset.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Major Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">1+</span>
+            <span class="stat-label">Year Learning</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-highlights">
+        @for (item of highlights; track item.title) {
+          <div class="highlight-card">
+            <div class="highlight-icon">
+              @if (item.icon === 'code') {
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16,18 22,12 16,6"></polyline>
+                  <polyline points="8,6 2,12 8,18"></polyline>
+                </svg>
+              }
+              @if (item.icon === 'angular') {
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9.931 12.645h4.138l-2.07-4.908m0-7.737L.68 3.982l1.726 14.771L12 24l9.596-5.242L23.32 3.984 11.999.001zm7.064 18.31h-2.638l-1.422-3.503H8.996l-1.422 3.504h-2.64L12 2.65z"/>
+                </svg>
+              }
+              @if (item.icon === 'database') {
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              }
+              @if (item.icon === 'api') {
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              }
+            </div>
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

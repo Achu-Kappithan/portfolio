@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ng generate:*)",
+      "Bash(ng build:*)",
+      "Bash(ng serve:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs:*)"
+    ]
+  }
+}

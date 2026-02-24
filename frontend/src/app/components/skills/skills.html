@@ -1,0 +1,56 @@
+<section class="section skills-section" id="skills">
+  <div class="container">
+    <div class="fade-in">
+      <h2 class="section-title">Skills & Technologies</h2>
+      <p class="section-subtitle">Technologies I work with to bring ideas to life</p>
+    </div>
+
+    <div class="skills-grid fade-in">
+      @for (category of skillCategories; track category.title) {
+        <div class="skill-category glass-card">
+          <h3 class="category-title">{{ category.title }}</h3>
+          <div class="skills-badges">
+            @for (skill of category.skills; track skill.name) {
+              <div class="skill-badge" [attr.title]="skill.name">
+                @if (skill.svgPath) {
+                  <svg viewBox="0 0 24 24" fill="currentColor" class="skill-icon">
+                    <path [attr.d]="skill.svgPath" />
+                  </svg>
+                }
+                <span class="skill-name">{{ skill.name }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="tech-stack fade-in">
+      <h3 class="tech-title">Tech Stack Overview</h3>
+      <div class="tech-icons-wrapper">
+        <div class="tech-icons">
+          <div class="tech-icons-track">
+            @for (item of techStack; track $index) {
+              <div class="tech-icon" [attr.title]="item.name">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path [attr.d]="item.svgPath" />
+                </svg>
+                <span>{{ item.name }}</span>
+              </div>
+            }
+          </div>
+          <div class="tech-icons-track">
+            @for (item of techStack; track $index + 'dup') {
+              <div class="tech-icon" [attr.title]="item.name">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path [attr.d]="item.svgPath" />
+                </svg>
+                <span>{{ item.name }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

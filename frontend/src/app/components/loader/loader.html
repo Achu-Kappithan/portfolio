@@ -1,0 +1,14 @@
+<div class="loader-container" [class.hidden]="!isVisible()">
+  <div class="loader-content">
+    <div class="brand">
+      <span class="initials">AB</span>
+      <div class="ring"></div>
+    </div>
+    <div class="progress-wrapper">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progress()"></div>
+      </div>
+      <div class="status-text">{{ statusText() }}</div>
+    </div>
+  </div>
+</div>

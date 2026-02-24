@@ -1,0 +1,127 @@
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.education-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+}
+
+.edu-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 12px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.edu-content {
+  flex: 1;
+}
+
+.edu-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  margin-bottom: 12px;
+
+  &.ongoing {
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--accent);
+  }
+}
+
+.edu-degree {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.edu-institution {
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.edu-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.edu-location,
+.edu-period {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.edu-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+
+  li {
+    position: relative;
+    padding-left: 16px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .education-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+}

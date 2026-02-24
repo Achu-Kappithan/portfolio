@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>✨ Achyut's Professional Portfolio ✨</h1>
+  <h1>✨ Achu's Professional Portfolio ✨</h1>
   <p>A sleek, modern, and high-performance portfolio built with Angular 19.</p>
 
   <!-- This is the "Image Area" you requested for GitHub visitors -->

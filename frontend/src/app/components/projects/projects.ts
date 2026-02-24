@@ -35,7 +35,7 @@ export class Projects {
       ],
       github: 'https://github.com/Achu-Kappithan/fobverse-api',
       liveLink: 'https://app.achuu.online',
-      status: 'ongoing'
+      status: 'completed'
     },
     {
       title: 'E-Commerce Website',

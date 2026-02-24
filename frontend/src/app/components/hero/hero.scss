@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -160,13 +162,13 @@
 
 .avatar-ring {
   position: absolute;
-  inset: 0;
-  border: 3px solid transparent;
+  inset: -10px;
+  border: 1px solid rgba(124, 58, 237, 0.2);
   border-radius: 50%;
-  background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
-              var(--gradient) border-box;
-  animation: rotate 10s linear infinite;
-  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+  animation: rotate 15s linear infinite;
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.1),
+              inset 0 0 40px rgba(124, 58, 237, 0.05);
+  pointer-events: none;
 }
 
 @keyframes rotate {
@@ -174,21 +176,78 @@
   to { transform: rotate(360deg); }
 }
 
-.avatar-initials {
+.avatar-vortex {
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: var(--bg-secondary);
+  background: #050505;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 6rem;
-  font-weight: 700;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  border: 2px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 1),
+              0 0 40px rgba(124, 58, 237, 0.05);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 5, 0.8) 70%);
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+.vortex-layers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-line {
+  position: absolute;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: var(--accent);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+  animation: vortex-spiral 20s ease-in-out infinite;
+  animation-fill-mode: backwards;
+  --rot: 0deg; /* Fallback for safe transforms */
+
+  @for $i from 1 through 100 {
+    &:nth-child(#{$i}) {
+      --rot: #{$i * 137.5}deg;
+      animation-delay: #{$i * 0.15}s;
+      animation-duration: #{15 + math.random(10)}s;
+    }
+  }
+}
+
+@keyframes vortex-spiral {
+  0% {
+    transform: rotate(var(--rot)) translateY(170px) scale(1.1) rotate(calc(var(--rot) * -1));
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(calc(var(--rot) + 720deg)) translateY(0) scale(0) rotate(calc(var(--rot) * -1 - 720deg));
+    opacity: 0;
+  }
 }
 
 .scroll-indicator {
@@ -256,10 +315,9 @@
     height: 240px;
   }
 
-  .avatar-initials {
+  .avatar-vortex {
     width: 200px;
     height: 200px;
-    font-size: 4rem;
   }
 }
 

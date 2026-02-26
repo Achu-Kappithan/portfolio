@@ -18,8 +18,8 @@ export class Hero implements OnInit {
 
   socialLinks = [
     { icon: 'github', url: 'https://github.com/achu-kappithan', label: 'GitHub' },
-    { icon: 'linkedin', url: 'https://www.linkedin.com/in/achu-baiju-570314313/', label: 'LinkedIn' },
-    { icon: 'email', url: 'mailto:achu.k.baiju@gmail.com', label: 'Email' },
+    { icon: 'linkedin', url: 'https://www.linkedin.com/in/achu-baiju/', label: 'LinkedIn' },
+    { icon: 'email', url: '#contact', label: 'Email' },
   ];
 
   ngOnInit() {

@@ -95,6 +95,10 @@ header {
   gap: 12px;
 }
 
+.mobile-actions {
+  display: none;
+}
+
 .resume-nav-btn {
   padding: 8px 16px;
   font-size: 0.85rem;
@@ -148,6 +152,21 @@ header {
 
     li a {
       font-size: 1.2rem;
+    }
+
+    .mobile-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 1rem;
+      width: 100%;
+      align-items: center;
+
+      button, a {
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+      }
     }
   }
 

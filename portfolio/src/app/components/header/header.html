@@ -13,6 +13,12 @@
             <a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
           </li>
         }
+        <li class="mobile-actions">
+          <button (click)="viewResume.emit(); closeMenu()" class="btn btn-outline resume-nav-btn">
+            Resume
+          </button>
+          <a href="#contact" (click)="closeMenu()" class="btn btn-primary hire-btn">Hire Me</a>
+        </li>
       </ul>
 
       <div class="nav-actions">

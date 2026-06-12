@@ -1,20 +1,83 @@
-<!-- Chatbot Trigger Button -->
-<button class="chatbot-trigger" (click)="toggleChat()" [class.active]="isOpen()" aria-label="Open career assistant chat">
-  <div class="trigger-icon-container">
-    @if (!isOpen()) {
-      <!-- Chat bubble icon -->
-      <svg class="trigger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+<!-- Chatbot Trigger Container -->
+<div class="chatbot-trigger-container" [class.chat-open]="isOpen()">
+  @if (!isOpen()) {
+    <!-- Hovering Robot Avatar above the trigger -->
+    <div class="chatbot-robot-avatar">
+      <!-- Speech bubble next to the robot -->
+      <div class="chatbot-tooltip">
+        <span>Ask me about Achu! 🤖</span>
+      </div>
+      
+      <!-- The Hovering Robot SVG -->
+      <svg class="robot-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Shadow -->
+        <ellipse class="robot-shadow" cx="50" cy="114" rx="16" ry="3" fill="#000000" opacity="0.25" />
+        
+        <!-- Animated Group (Head, Body, Arms) -->
+        <g class="robot-body-group">
+          <!-- Ears -->
+          <ellipse cx="17" cy="34" rx="3" ry="7" fill="#ffffff" stroke="#9ca3af" stroke-width="1" />
+          <ellipse cx="83" cy="34" rx="3" ry="7" fill="#ffffff" stroke="#9ca3af" stroke-width="1" />
+          
+          <!-- Head Outer -->
+          <rect x="20" y="10" width="60" height="48" rx="20" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5" />
+          <!-- Camera on top -->
+          <rect x="48" y="7" width="4" height="3" rx="1" fill="#4b5563" />
+          <circle cx="50" cy="5" r="1.5" fill="#1e293b" />
+          
+          <!-- Face Visor -->
+          <rect x="26" y="16" width="48" height="34" rx="14" fill="#0f172a" />
+          
+          <!-- Glowing Eyes -->
+          <circle cx="38" cy="29" r="4.5" fill="#38bdf8" class="robot-eyes" />
+          <circle cx="62" cy="29" r="4.5" fill="#38bdf8" class="robot-eyes" />
+          
+          <!-- Smiling Mouth -->
+          <path d="M 43 38 Q 50 44 57 38" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
+          
+          <!-- Neck -->
+          <rect x="47" y="58" width="6" height="5" rx="1" fill="#6b7280" />
+          
+          <!-- Shoulders -->
+          <circle cx="28" cy="70" r="4" fill="#ffffff" stroke="#9ca3af" stroke-width="1" />
+          <circle cx="72" cy="70" r="4" fill="#ffffff" stroke="#9ca3af" stroke-width="1" />
+          
+          <!-- Torso Shield -->
+          <path d="M 32 64 L 68 64 C 68 64 68 86 50 92 C 32 86 32 64 32 64 Z" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5" />
+          <!-- Torso Emblem Box -->
+          <rect x="42" y="70" width="16" height="15" rx="3" fill="none" stroke="#9ca3af" stroke-width="1.2" />
+          <!-- Letter 'A' (Customized for Achu!) -->
+          <text x="50" y="82" font-family="'Inter', sans-serif" font-weight="800" font-size="10" fill="#7C3AED" text-anchor="middle">A</text>
+          
+          <!-- Arm Bars -->
+          <line class="left-arm" x1="28" y1="73" x2="22" y2="86" stroke="#6b7280" stroke-width="2.5" stroke-linecap="round" />
+          <line class="right-arm" x1="72" y1="73" x2="78" y2="86" stroke="#6b7280" stroke-width="2.5" stroke-linecap="round" />
+          
+          <!-- Hands (Pills) -->
+          <rect class="left-hand" x="17" y="86" width="10" height="20" rx="5" fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" />
+          <rect class="right-hand" x="73" y="86" width="10" height="20" rx="5" fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" />
+        </g>
       </svg>
-      <span class="pulse-badge"></span>
-    } @else {
-      <!-- Close (X) icon -->
-      <svg class="trigger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    }
-  </div>
-</button>
+    </div>
+  }
+
+  <button class="chatbot-trigger" (click)="toggleChat()" [class.active]="isOpen()" aria-label="Open career assistant chat">
+    <div class="trigger-icon-container">
+      @if (!isOpen()) {
+        <!-- Chat bubble message icon -->
+        <svg class="trigger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        <span class="pulse-badge"></span>
+      } @else {
+        <!-- Close (X) icon -->
+        <svg class="trigger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      }
+    </div>
+  </button>
+</div>
 
 <!-- Chat Window -->
 <div class="chatbot-window glass-card" [class.open]="isOpen()">

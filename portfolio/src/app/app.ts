@@ -11,6 +11,7 @@ import { Footer } from './components/footer/footer';
 import { Loader } from './components/loader/loader';
 import { Background } from './components/background/background';
 import { ResumeViewer } from './components/resume-viewer/resume-viewer';
+import { Chatbot } from './components/chatbot/chatbot';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ import { ResumeViewer } from './components/resume-viewer/resume-viewer';
     Footer,
     Loader,
     Background,
-    ResumeViewer
+    ResumeViewer,
+    Chatbot
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

@@ -28,11 +28,13 @@
         <a href="#contact" class="btn btn-primary hire-btn">Hire Me</a>
       </div>
 
-      <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()">
+      <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen()" aria-label="Toggle navigation menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
     </nav>
   </div>
+  
+  <div class="menu-overlay" [class.active]="isMenuOpen()" (click)="closeMenu()"></div>
 </header>

@@ -4,5 +4,7 @@ export const environment = {
     serviceId: 'service_j9ccmtd',
     templateId: 'template_14bikl2',
     publicKey: 'Yq5bRlakQTkGhql1T'
-  }
+  },
+  groqApiKey: '',
+  groqApiUrl: 'https://api.groq.com/openai/v1'
 };

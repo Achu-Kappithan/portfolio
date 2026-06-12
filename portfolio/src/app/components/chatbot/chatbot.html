@@ -1,13 +1,13 @@
 <!-- Chatbot Trigger Container -->
 <div class="chatbot-trigger-container" [class.chat-open]="isOpen()">
   @if (!isOpen()) {
-    <!-- Hovering Robot Avatar above the trigger -->
-    <div class="chatbot-robot-avatar">
-      <!-- Speech bubble next to the robot -->
-      <div class="chatbot-tooltip">
-        <span>Ask me about Achu! 🤖</span>
-      </div>
-      
+    <!-- Speech bubble stuck next to the trigger button -->
+    <div class="chatbot-tooltip">
+      <span>Ask me about Achu! 🤖</span>
+    </div>
+
+    <!-- Hovering Robot Avatar traveling the window -->
+    <div class="chatbot-robot-avatar" #robotRef (click)="toggleChat()">
       <!-- The Hovering Robot SVG -->
       <svg class="robot-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
         <!-- Shadow -->

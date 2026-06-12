@@ -19,15 +19,34 @@
 }
 
 .chatbot-robot-avatar {
-  position: absolute;
-  bottom: 66px; // Sit directly above the trigger button
-  right: -5px; // Align center relative to trigger button
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 70px;
   height: 84px;
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 999;
+  will-change: transform;
+  
+  // Hover interaction: Make the robot wave and fly higher when hovered
+  &:hover {
+    .robot-body-group {
+      animation: robot-excited 0.8s ease-in-out infinite alternate;
+    }
+    .robot-shadow {
+      animation: shadow-excited 0.8s ease-in-out infinite alternate;
+    }
+    .left-arm, .left-hand {
+      animation: left-arm-wave 0.4s ease-in-out infinite alternate;
+    }
+    .right-arm, .right-hand {
+      animation: right-arm-wave 0.4s ease-in-out infinite alternate;
+    }
+  }
 }
 
 .robot-svg {
@@ -63,7 +82,8 @@
 .chatbot-tooltip {
   position: absolute;
   right: 76px;
-  top: 15px; // Align vertically with robot head/visor
+  top: auto;
+  bottom: auto;
   white-space: nowrap;
   background: rgba(17, 17, 17, 0.9);
   backdrop-filter: blur(10px);
@@ -585,7 +605,7 @@
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(4deg);
+    transform: rotate(5deg);
   }
 }
 
@@ -594,16 +614,23 @@
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(-4deg);
+    transform: rotate(-5deg);
   }
 }
 
+// Drifts organically left, right, up, down, and tilts
 @keyframes robot-float-avatar {
   0%, 100% {
-    transform: translateY(0);
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-3px, -5px) rotate(-1deg);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translate(2px, -9px) rotate(1.5deg);
+  }
+  75% {
+    transform: translate(3px, -4px) rotate(-0.5deg);
   }
 }
 
@@ -612,9 +639,17 @@
     transform: scale(1);
     opacity: 0.25;
   }
+  25% {
+    transform: scale(0.85);
+    opacity: 0.18;
+  }
   50% {
-    transform: scale(0.75);
+    transform: scale(0.72);
     opacity: 0.12;
+  }
+  75% {
+    transform: scale(0.88);
+    opacity: 0.2;
   }
 }
 
@@ -624,6 +659,46 @@
   }
   97.5% {
     transform: scaleY(0.1);
+  }
+}
+
+// Hover excited flying animation
+@keyframes robot-excited {
+  0% {
+    transform: translate(0, -6px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, -15px) rotate(3deg);
+  }
+}
+
+@keyframes shadow-excited {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.18;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0.06;
+  }
+}
+
+// Waving arms
+@keyframes left-arm-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(24deg);
+  }
+}
+
+@keyframes right-arm-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-24deg);
   }
 }
 
